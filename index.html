@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Special Question ❤️</title>
+
+    <style>
+        body{
+            text-align:center;
+            font-family:Arial, sans-serif;
+            margin-top:100px;
+            background:#f5f5f5;
+        }
+
+        button{
+            padding:12px 25px;
+            font-size:20px;
+            margin:10px;
+            cursor:pointer;
+        }
+
+        #noBtn{
+            position:relative;
+        }
+
+        h1{
+            margin-bottom:40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Do you love me? ❤️</h1>
+
+<button onclick="yesClicked()">Yes ❤️</button>
+<button id="noBtn">No 😎</button>
+
+<script>
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 100);
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+function yesClicked(){
+
+    document.body.innerHTML = `
+        <h1 style="font-size:60px;">
+            🤣 KaloBhai GAY 🤣
+        </h1>
+
+        
+    `;
+}
+
+</script>
+
+</body>
+</html>
