@@ -1,66 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Special Question ❤️</title>
+    <meta charset="UTF-8">
+    <title>Do You Love Me? ❤️</title>
 
     <style>
-        body{
-            text-align:center;
-            font-family:Arial, sans-serif;
-            margin-top:100px;
-            background:#f5f5f5;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #fff5f5;
+            padding-top: 60px;
         }
 
-        button{
-            padding:12px 25px;
-            font-size:20px;
-            margin:10px;
-            cursor:pointer;
+        button {
+            padding: 12px 25px;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
         }
 
-        #noBtn{
-            position:relative;
-        }
-
-        h1{
-            margin-bottom:40px;
+        img {
+            max-width: 300px;
+            border-radius: 15px;
         }
     </style>
 </head>
 
 <body>
 
-<h1>Do you love me? ❤️</h1>
+    <h1>Do You Love Me? ❤️</h1>
 
-<button onclick="yesClicked()">Yes ❤️</button>
-<button id="noBtn">No 😎</button>
+    <button id="yesBtn">YES ❤️</button>
+    <button onclick="page1()">NO 💔</button>
 
-<script>
+    <script>
 
-const noBtn = document.getElementById("noBtn");
+        function makeButtonRun(button) {
 
-noBtn.addEventListener("mouseover", () => {
+            button.addEventListener("mouseover", () => {
 
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = Math.random() * (window.innerHeight - 100);
+                const x = Math.random() * (window.innerWidth - 150);
+                const y = Math.random() * (window.innerHeight - 100);
 
-    noBtn.style.position = "absolute";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-});
+                button.style.position = "absolute";
+                button.style.left = x + "px";
+                button.style.top = y + "px";
+            });
+        }
 
-function yesClicked(){
+        makeButtonRun(document.getElementById("yesBtn"));
 
-    document.body.innerHTML = `
-        <h1 style="font-size:60px;">
-            🤣 KaloBhai GAY 🤣
-        </h1>
 
-        
-    `;
-}
 
-</script>
+        // PAGE 1
+        function page1() {
+
+            document.body.innerHTML = `
+                <img src="cat.png">
+
+                <h1>Kitni buri ho tum 😭</h1>
+
+                <h2>You betrayed my heart 💔</h2>
+
+                <br>
+
+                <h3>Chalo ek mauka phirse deta hu 🥲</h3>
+
+                <h2>Do you love me? 😭😭</h2>
+
+                <button id="yesBtn2">YES ❤️</button>
+
+                <button onclick="page2()">NO 💔</button>
+            `;
+
+            makeButtonRun(document.getElementById("yesBtn2"));
+        }
+
+
+
+        // PAGE 2
+        function page2() {
+
+            document.body.innerHTML = `
+                <img src="us.png">
+
+                <h2 style="margin-top:20px;">
+                    Thik hai bhai AI hai na ye 🥲
+                </h2>
+
+                <h3>
+                    Last Warning ⚠️ Tap YES
+                </h3>
+
+                <button onclick="finalPage()">YES ❤️</button>
+
+                <button disabled>NO ❌</button>
+            `;
+        }
+
+
+
+        // FINAL PAGE
+        function finalPage() {
+
+            document.body.innerHTML = `
+                <img src="cat3.png">
+
+                <h1 style="margin-top:20px;">
+                    Kabhi galti se yaad aati ho toh CALL kr diya kro ☎️
+                </h1>
+
+                <h3>
+                    Mujhe bhi mann hota hai baat krne ka 🥲
+                </h3>
+
+                <h3>
+                    But topics nhi hote mere paas...
+                </h3>
+
+                <h2>
+                    Baat kis topic pe karni hai vo tum decide kar lena ❤️
+                </h2>
+            `;
+        }
+
+    </script>
 
 </body>
+
 </html>
