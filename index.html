@@ -1,136 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Do You Love Me? ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Quiz ❤️</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: #fff5f5;
-            padding-top: 60px;
-        }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-        button {
-            padding: 12px 25px;
-            font-size: 20px;
-            margin: 10px;
-            cursor: pointer;
-            border-radius: 10px;
-        }
+body{
+background:linear-gradient(135deg,#ffd6e7,#ffeef5);
+overflow:hidden;
+text-align:center;
+color:#333;
+}
 
-        img {
-            max-width: 300px;
-            border-radius: 15px;
-        }
+.screen{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
 
-    </style>
+h1,h2,h3,p{
+margin:10px;
+}
+
+button{
+padding:12px 24px;
+font-size:18px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+margin:10px;
+transition:.3s;
+}
+
+.yes{
+background:#ff4f8b;
+color:white;
+}
+
+.no{
+background:white;
+}
+
+img{
+max-width:280px;
+width:90%;
+border-radius:20px;
+box-shadow:0 0 15px rgba(0,0,0,.2);
+margin:15px;
+}
+
+.progress-container{
+width:85%;
+max-width:500px;
+height:15px;
+background:#fff;
+border-radius:30px;
+overflow:hidden;
+margin:20px auto;
+}
+
+.progress{
+height:100%;
+width:10%;
+background:#ff4f8b;
+transition:1s;
+}
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:float linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+from{
+transform:translateY(0);
+opacity:1;
+}
+to{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,.15);
+max-width:500px;
+}
+
+.shareBtn{
+background:#25D366;
+color:white;
+}
+
+.musicBtn{
+position:fixed;
+top:10px;
+right:10px;
+z-index:1000;
+}
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+}
+</style>
+
 </head>
-
 <body>
 
- <img src="cat.png" alt="meow" height="300">
+<button class="musicBtn" onclick="toggleMusic()">🎵 Music</button>
 
-    <h1>Do You Love Me? ❤️</h1>
+<audio id="bgMusic" loop>
+<source src="music.m4a" type="audio/mpeg">
+</audio>
 
-    <button id="yesBtn">YES ❤️</button>
-    <button onclick="page1()">NO 💔</button>
+<div class="screen" id="app">
 
-    <script>
+<h1>Do You Love Me? ❤️</h1>
 
-        function makeButtonRun(button) {
+<div class="progress-container">
+<div class="progress" id="progress"></div>
+</div>
 
-            button.addEventListener("mouseover", () => {
+<p>No TRY krke dekh le , kon jeetega 😏</p>
 
-                const x = Math.random() * (window.innerWidth - 150);
-                const y = Math.random() * (window.innerHeight - 100);
+<button class="yes" onclick="page2()">YES ❤️</button>
+<button class="no" id="no1">NO 💔</button>
 
-                button.style.position = "absolute";
-                button.style.left = x + "px";
-                button.style.top = y + "px";
-            });
-        }
+</div>
 
-        makeButtonRun(document.getElementById("yesBtn"));
+<script>
+
+const no1=document.getElementById("no1");
+
+function runButton(btn){
+
+btn.addEventListener("mouseover",()=>{
+
+const x=Math.random()*(window.innerWidth-150);
+const y=Math.random()*(window.innerHeight-100);
+
+btn.style.position="absolute";
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+
+});
+
+}
+
+runButton(no1);
+
+function updateProgress(value){
+document.getElementById("progress").style.width=value+"%";
+}
+
+function page2(){
+
+document.getElementById("app").innerHTML=`
+
+<img src="cat.png">
+
+<h1>You clicked YES 😳</h1>
+
+<div class="progress-container">
+<div class="progress" style="width:25%"></div>
+</div>
+
+<h2>Acha batao...</h2>
+
+<h3>Would you share your fries with me? 🍟</h3>
+
+<button class="yes" onclick="page3()">Of Course ❤️</button>
+<button onclick="page3()">Maybe 😅</button>
+
+`;
+
+}
+
+function page3(){
+
+document.getElementById("app").innerHTML=`
+
+<img src="cat2.png">
+
+<h1>Relationship Compatibility Test 💘</h1>
+
+<div class="progress-container">
+<div class="progress" style="width:50%"></div>
+</div>
+
+<h3>How cute am I?</h3>
+
+<button class="yes" onclick="page4()">100/10 😭❤️</button>
+
+<button onclick="page4()">Infinity ♾️</button>
+
+`;
+
+}
+
+function page4(){
+
+document.getElementById("app").innerHTML=`
+
+<img src="cat3.png">
+
+<h1>One Last Question 🥺</h1>
+
+<div class="progress-container">
+<div class="progress" style="width:75%"></div>
+</div>
+
+<h2>Will you stay with me forever? ❤️</h2>
+
+<button class="yes" onclick="finalPage()">YES ❤️</button>
+
+<button class="no" id="lastNo">NO 💔</button>
+
+`;
+
+runButton(document.getElementById("lastNo"));
+
+}
+
+function finalPage(){
+
+confetti();
+
+document.getElementById("app").innerHTML=`
+
+<div class="card">
+
+<img src="cat4.png">
+
+<h1>🎉 Congratulations 🎉</h1>
+
+<div class="progress-container">
+<div class="progress" style="width:100%"></div>
+</div>
+
+<h2>Lifetime Partner Membership Unlocked ❤️</h2>
+
+<br>
+
+<p>✅ Unlimited Hugs</p>
+
+<p>✅ Unlimited Support</p>
+
+<p>✅ Lifetime Teasing Package 😂</p>
+
+<p>✅ Priority Care Service ❤️</p>
+
+<br>
+
+<h3>Kabhi galti se yaad aaye...</h3>
+
+<p>Toh call bhi kar diya kro 🥺</p>
 
 
+<br>
 
-        // PAGE 1
-        function page1() {
+<button class="shareBtn" onclick="shareSite()">
+Share With Someone Special ❤️
+</button>
 
-            document.body.innerHTML = `
-                <img src="cat2.png">
+</div>
 
-                <h1>Kitni buri ho tum 😭</h1>
+`;
 
-                <h2>You betrayed my heart 💔</h2>
+}
 
-                <br>
+function shareSite(){
 
-                <h3>Chalo ek mauka phirse deta hu 🥲</h3>
+if(navigator.share){
 
-                <h2>Do you love me? 😭😭</h2>
+navigator.share({
+title:"Love Quiz ❤️",
+text:"Try this cute relationship test ❤️",
+url:https://t1adi.github.io/love-quiz/
+});
 
-                <button id="yesBtn2">YES ❤️</button>
+}else{
 
-                <button onclick="page2()">NO 💔</button>
-            `;
+navigator.clipboard.writeText(window.location.href);
 
-            makeButtonRun(document.getElementById("yesBtn2"));
-        }
+alert("Link copied ❤️");
 
+}
 
+}
 
-        // PAGE 2
-        function page2() {
+function toggleMusic(){
 
-            document.body.innerHTML = `
-                <img src="us.png">
+const music=document.getElementById("bgMusic");
 
-                <h2 style="margin-top:20px;">
-                    Thik hai bhai AI hai na ye 🥲
-                </h2>
+if(music.paused){
 
-                <h3>
-                    Last Warning ⚠️ Tap YES
-                </h3>
+music.play();
 
-                <button onclick="finalPage()">YES ❤️</button>
+}else{
 
-                <button disabled>NO ❌</button>
-            `;
-        }
+music.pause();
 
+}
 
+}
 
-        // FINAL PAGE
-        function finalPage() {
+function confetti(){
 
-            document.body.innerHTML = `
-                <img src="cat3.png">
+for(let i=0;i<150;i++){
 
-                <h1 style="margin-top:20px;">
-                    Kabhi galti se yaad aati ho toh CALL kr diya kro ☎️
-                </h1>
+const c=document.createElement("div");
 
-                <h3>
-                    Mujhe bhi mann hota hai baat krne ka 🥲
-                </h3>
+c.classList.add("confetti");
 
-                <h3>
-                    But topics nhi hote mere paas...
-                </h3>
+c.style.left=Math.random()*100+"vw";
 
-                <h2>
-                    Baat kis topic pe karni hai vo tum decide kar lena ❤️
-                </h2>
-            `;
-        }
+c.style.background=
+`hsl(${Math.random()*360},100%,50%)`;
 
-    </script>
+c.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.remove();
+
+},5000);
+
+}
+
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(Math.random()*20+15)+"px";
+
+heart.style.animationDuration=
+(Math.random()*5+5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},10000);
+
+}
+
+setInterval(createHeart,300);
+
+</script>
 
 </body>
-
 </html>
