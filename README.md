@@ -38,6 +38,7 @@ love-quiz/
 ├── cat2.png
 ├── cat3.png
 ├── cat4.png
+├── cat5.png
 ├── music.m4a
 └── README.md
 ```
