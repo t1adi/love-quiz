@@ -2,7 +2,7 @@
 
 This project is designed as a playful prank website where users must make a difficult choice between YES and NO. The experience includes moving buttons, funny reactions, custom images, multiple screens and surprise endings.
 
-🔗 **Live Website:**  https://t1adi.github.io/love-quiz/
+🔗 **Live Website:**  https://t1adi.github.io/impossible-choice-game/
 🔗 **GitHub Profile:** https://github.com/t1adi
 
 ---
@@ -60,7 +60,7 @@ love-quiz/
 
 View Project:
 
-https://t1adi.github.io/love-quiz/
+https://t1adi.github.io/impossible-choice-game/
 
 ---
 
