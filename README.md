@@ -7,7 +7,7 @@ This project is designed as a playful prank website where users must make a diff
 
 ---
 
-## ✨ Features
+## ✨ Features 
 
 - 🎯 Interactive multi-step love quiz
 - 🏃 Moving button mechanics
@@ -66,6 +66,6 @@ https://t1adi.github.io/impossible-choice-game/
 
 ## 👨‍💻 Author
 
-Aditya Raj
+Aditya Raj  
 
 GitHub: https://github.com/t1adi
